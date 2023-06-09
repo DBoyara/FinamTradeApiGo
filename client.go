@@ -12,6 +12,8 @@ import (
 )
 
 type IFinamClient interface {
+	// Справочник инструментов.
+	GetSecurities() (*tradeapi.GetSecuritiesResult, error)
 	// Подписка на биржевой стакан
 	SubscribeOrderBook(in *tradeapi.OrderBookSubscribeRequest)
 	// Удаление подписки на биржевой стакан
@@ -56,6 +58,7 @@ type FinamClient struct {
 	orders         tradeapi.OrdersClient
 	stops          tradeapi.StopsClient
 	events         tradeapi.EventsClient
+	securities     tradeapi.SecuritiesClient
 	orderBooksChan chan *tradeapi.OrderBookEvent
 	orderTradeChan chan *tradeapi.TradeEvent
 	orderChan      chan *tradeapi.OrderEvent
@@ -81,6 +84,7 @@ func NewFinamClient(clientId, token string, ctx context.Context) (IFinamClient, 
 		orders:         tradeapi.NewOrdersClient(conn),
 		stops:          tradeapi.NewStopsClient(conn),
 		events:         tradeapi.NewEventsClient(conn),
+		securities:     tradeapi.NewSecuritiesClient(conn),
 		orderBooksChan: make(chan *tradeapi.OrderBookEvent),
 		orderTradeChan: make(chan *tradeapi.TradeEvent),
 		orderChan:      make(chan *tradeapi.OrderEvent),
