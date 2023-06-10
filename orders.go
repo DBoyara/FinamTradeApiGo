@@ -5,7 +5,6 @@ import (
 )
 
 func (f *FinamClient) NewOrder(in *tradeapi.NewOrderRequest) (*tradeapi.NewOrderResult, error) {
-	f.CreateRequestContext()
 
 	res, err := f.orders.NewOrder(f.ctx, in)
 	if err != nil {
@@ -15,7 +14,6 @@ func (f *FinamClient) NewOrder(in *tradeapi.NewOrderRequest) (*tradeapi.NewOrder
 }
 
 func (f *FinamClient) CancelOrder(transactionId int32) (*tradeapi.CancelOrderResult, error) {
-	f.CreateRequestContext()
 
 	in := &tradeapi.CancelOrderRequest{
 		ClientId:      f.clientId,
@@ -30,7 +28,6 @@ func (f *FinamClient) CancelOrder(transactionId int32) (*tradeapi.CancelOrderRes
 }
 
 func (f *FinamClient) GetOrders(includeMatched, includeCanceled, includeActive bool) (*tradeapi.GetOrdersResult, error) {
-	f.CreateRequestContext()
 
 	in := &tradeapi.GetOrdersRequest{
 		ClientId:        f.clientId,

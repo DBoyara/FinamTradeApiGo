@@ -14,6 +14,10 @@ import (
 type IFinamClient interface {
 	// Справочник инструментов.
 	GetSecurities() (*tradeapi.GetSecuritiesResult, error)
+	// Возвращает дневные свечи.
+	GetDayCandles(in *tradeapi.GetDayCandlesRequest) (*tradeapi.GetDayCandlesResult, error)
+	// Возвращает внутридневные свечи.
+	GetIntradayCandles(in *tradeapi.GetIntradayCandlesRequest) (*tradeapi.GetIntradayCandlesResult, error)
 	// Подписка на биржевой стакан
 	SubscribeOrderBook(in *tradeapi.OrderBookSubscribeRequest)
 	// Удаление подписки на биржевой стакан
@@ -59,6 +63,7 @@ type FinamClient struct {
 	stops          tradeapi.StopsClient
 	events         tradeapi.EventsClient
 	securities     tradeapi.SecuritiesClient
+	candles        tradeapi.CandlesClient
 	orderBooksChan chan *tradeapi.OrderBookEvent
 	orderTradeChan chan *tradeapi.TradeEvent
 	orderChan      chan *tradeapi.OrderEvent
@@ -70,10 +75,11 @@ func NewFinamClient(clientId, token string, ctx context.Context) (IFinamClient, 
 
 	tlsConfig := tls.Config{MinVersion: tls.VersionTLS12}
 
-	conn, err := grpc.Dial(endpoint, grpc.WithTransportCredentials(credentials.NewTLS(&tlsConfig)))
+	conn, err := grpc.DialContext(ctx, endpoint, grpc.WithTransportCredentials(credentials.NewTLS(&tlsConfig)))
 	if err != nil {
 		return nil, err
 	}
+	ctx = grpcMetadata.AppendToOutgoingContext(ctx, "x-api-key", token)
 
 	client := &FinamClient{
 		token:          token,
@@ -85,6 +91,7 @@ func NewFinamClient(clientId, token string, ctx context.Context) (IFinamClient, 
 		stops:          tradeapi.NewStopsClient(conn),
 		events:         tradeapi.NewEventsClient(conn),
 		securities:     tradeapi.NewSecuritiesClient(conn),
+		candles:        tradeapi.NewCandlesClient(conn),
 		orderBooksChan: make(chan *tradeapi.OrderBookEvent),
 		orderTradeChan: make(chan *tradeapi.TradeEvent),
 		orderChan:      make(chan *tradeapi.OrderEvent),

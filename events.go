@@ -23,7 +23,6 @@ func (f *FinamClient) GetErrorChan() chan error {
 }
 
 func (f *FinamClient) SubscribeOrderBook(in *tradeapi.OrderBookSubscribeRequest) {
-	f.CreateRequestContext()
 
 	e, err := f.events.GetEvents(f.ctx)
 	if err != nil {
@@ -53,7 +52,6 @@ func (f *FinamClient) SubscribeOrderBook(in *tradeapi.OrderBookSubscribeRequest)
 }
 
 func (f *FinamClient) UnSubscribeOrderBook(in *tradeapi.OrderBookUnsubscribeRequest) *tradeapi.ResponseEvent {
-	f.CreateRequestContext()
 
 	e, err := f.events.GetEvents(f.ctx)
 	if err != nil {
@@ -80,7 +78,6 @@ func (f *FinamClient) UnSubscribeOrderBook(in *tradeapi.OrderBookUnsubscribeRequ
 }
 
 func (f *FinamClient) SubscribeOrderTrade(in *tradeapi.OrderTradeSubscribeRequest) {
-	f.CreateRequestContext()
 
 	e, err := f.events.GetEvents(f.ctx)
 	if err != nil {
@@ -111,7 +108,6 @@ func (f *FinamClient) SubscribeOrderTrade(in *tradeapi.OrderTradeSubscribeReques
 }
 
 func (f *FinamClient) UnSubscribeOrderTrade(in *tradeapi.OrderTradeUnsubscribeRequest) *tradeapi.ResponseEvent {
-	f.CreateRequestContext()
 
 	e, err := f.events.GetEvents(f.ctx)
 	if err != nil {

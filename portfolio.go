@@ -3,7 +3,6 @@ package finamclient
 import "github.com/DBoyara/FinamTradeGo/tradeapi"
 
 func (f *FinamClient) GetPortfolio(includeCurrencies, includeMoney, includePositions, includeMaxBuySell bool) (*tradeapi.GetPortfolioResult, error) {
-	f.CreateRequestContext()
 
 	in := &tradeapi.GetPortfolioRequest{
 		ClientId: f.clientId,

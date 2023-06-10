@@ -5,7 +5,6 @@ import (
 )
 
 func (f *FinamClient) NewStop(in *tradeapi.NewStopRequest) (*tradeapi.NewStopResult, error) {
-	f.CreateRequestContext()
 
 	res, err := f.stops.NewStop(f.ctx, in)
 	if err != nil {
@@ -15,7 +14,6 @@ func (f *FinamClient) NewStop(in *tradeapi.NewStopRequest) (*tradeapi.NewStopRes
 }
 
 func (f *FinamClient) CancelStop(stopId int32) (*tradeapi.CancelStopResult, error) {
-	f.CreateRequestContext()
 
 	in := &tradeapi.CancelStopRequest{
 		ClientId: f.clientId,
@@ -30,7 +28,6 @@ func (f *FinamClient) CancelStop(stopId int32) (*tradeapi.CancelStopResult, erro
 }
 
 func (f *FinamClient) GetStops(IncludeExecuted, includeCanceled, includeActive bool) (*tradeapi.GetStopsResult, error) {
-	f.CreateRequestContext()
 
 	in := &tradeapi.GetStopsRequest{
 		ClientId:        f.clientId,
