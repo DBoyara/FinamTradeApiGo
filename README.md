@@ -3,6 +3,7 @@
 Finam GRPC-client on Golang
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/DBoyara/FinamTradeGo)](https://goreportcard.com/report/github.com/DBoyara/FinamTradeGo) [![GoDoc](https://godoc.org/github.com/DBoyara/FinamTradeGo?status.svg)](https://pkg.go.dev/github.com/DBoyara/FinamTradeGo)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d11095947b38e5085c8f/maintainability)](https://codeclimate.com/github/DBoyara/FinamTradeApiGo/maintainability)
 
 
 
