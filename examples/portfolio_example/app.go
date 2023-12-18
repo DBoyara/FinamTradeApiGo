@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	finamclient "github.com/DBoyara/FinamTradeGo"
+	finamclient "github.com/evsamsonov/FinamTradeGo/v2"
 )
 
 func main() {

@@ -3,7 +3,7 @@ package finamclient
 import (
 	"time"
 
-	"github.com/DBoyara/FinamTradeGo/tradeapi"
+	"github.com/evsamsonov/FinamTradeGo/v2/tradeapi"
 )
 
 func (f *FinamClient) GetOrderBooksChan() chan *tradeapi.OrderBookEvent {

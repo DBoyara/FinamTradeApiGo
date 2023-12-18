@@ -1,6 +1,6 @@
 package finamclient
 
-import "github.com/DBoyara/FinamTradeGo/tradeapi"
+import "github.com/evsamsonov/FinamTradeGo/v2/tradeapi"
 
 func (f *FinamClient) GetPortfolio(includeCurrencies, includeMoney, includePositions, includeMaxBuySell bool) (*tradeapi.GetPortfolioResult, error) {
 

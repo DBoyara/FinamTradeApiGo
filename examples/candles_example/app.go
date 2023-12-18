@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	finamclient "github.com/DBoyara/FinamTradeGo"
-	"github.com/DBoyara/FinamTradeGo/tradeapi"
+	finamclient "github.com/evsamsonov/FinamTradeGo/v2"
+	"github.com/evsamsonov/FinamTradeGo/v2/tradeapi"
 	"google.golang.org/genproto/googleapis/type/date"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )

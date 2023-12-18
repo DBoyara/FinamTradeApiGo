@@ -1,6 +1,6 @@
 package finamclient
 
-import "github.com/DBoyara/FinamTradeGo/tradeapi"
+import "github.com/evsamsonov/FinamTradeGo/v2/tradeapi"
 
 func (f *FinamClient) GetDayCandles(in *tradeapi.GetDayCandlesRequest) (*tradeapi.GetDayCandlesResult, error) {
 	res, err := f.candles.GetDayCandles(f.ctx, in)

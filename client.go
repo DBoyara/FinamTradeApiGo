@@ -4,7 +4,7 @@ import (
 	"context"
 	"crypto/tls"
 
-	"github.com/DBoyara/FinamTradeGo/tradeapi"
+	"github.com/evsamsonov/FinamTradeGo/v2/tradeapi"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"

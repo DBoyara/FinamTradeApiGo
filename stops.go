@@ -1,7 +1,7 @@
 package finamclient
 
 import (
-	"github.com/DBoyara/FinamTradeGo/tradeapi"
+	"github.com/evsamsonov/FinamTradeGo/v2/tradeapi"
 )
 
 func (f *FinamClient) NewStop(in *tradeapi.NewStopRequest) (*tradeapi.NewStopResult, error) {

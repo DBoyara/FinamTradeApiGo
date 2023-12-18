@@ -1,4 +1,4 @@
-module github.com/DBoyara/FinamTradeGo
+module github.com/evsamsonov/FinamTradeGo/v2
 
 go 1.19
 
