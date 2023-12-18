@@ -11,7 +11,7 @@ Finam GRPC-client on Golang
 
 
 ```bash
-  go get github.com/evsamsonov/FinamTradeGo
+  go get github.com/evsamsonov/FinamTradeGo/v2
 ```
     
 ## Examples
