@@ -163,7 +163,7 @@ func main() {
 	defer client.CloseConnection()
 
 	in := &tradeapi.OrderBookSubscribeRequest{
-		RequestId:     "ffc38cb7-2071",
+		RequestId:     "ffc38cb7-21071",
 		SecurityCode:  "GAZP",
 		SecurityBoard: "TQBR",
 	}
