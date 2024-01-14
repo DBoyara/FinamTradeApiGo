@@ -20,6 +20,8 @@ type IFinamClient interface {
 	GetIntradayCandles(in *tradeapi.GetIntradayCandlesRequest) (*tradeapi.GetIntradayCandlesResult, error)
 	// Подписка на биржевой стакан
 	SubscribeOrderBook(in *tradeapi.OrderBookSubscribeRequest)
+	// Отправка Keep Alive для поддержания активности подписки
+	SubscribeKeepAlive(in *tradeapi.KeepAliveRequest) *tradeapi.ResponseEvent
 	// Удаление подписки на биржевой стакан
 	UnSubscribeOrderBook(in *tradeapi.OrderBookUnsubscribeRequest) *tradeapi.ResponseEvent
 	// Подписка на заявки и сделки

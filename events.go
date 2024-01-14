@@ -107,6 +107,34 @@ func (f *FinamClient) SubscribeOrderTrade(in *tradeapi.OrderTradeSubscribeReques
 	}
 }
 
+func (f *FinamClient) SubscribeKeepAlive(in *tradeapi.KeepAliveRequest) *tradeapi.ResponseEvent {
+	e, err := f.events.GetEvents(f.ctx)
+	if err != nil {
+		f.errChan <- err
+		return nil
+	}
+
+	payload := &tradeapi.SubscriptionRequest{
+		Payload: &tradeapi.SubscriptionRequest_KeepAliveRequest{
+			KeepAliveRequest: in,
+		},
+	}
+
+	err = e.Send(payload)
+	if err != nil {
+		f.errChan <- err
+		return nil
+	}
+
+	msg, err := e.Recv()
+	if err != nil {
+		f.errChan <- err
+		return nil
+	}
+
+	return msg.GetResponse()
+}
+
 func (f *FinamClient) UnSubscribeOrderTrade(in *tradeapi.OrderTradeUnsubscribeRequest) *tradeapi.ResponseEvent {
 
 	e, err := f.events.GetEvents(f.ctx)

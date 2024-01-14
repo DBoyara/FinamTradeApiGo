@@ -11,9 +11,13 @@ Finam GRPC-client on Golang
 
 
 ```bash
-  go get github.com/evsamsonov/FinamTradeGo/v2
+  go get github.com/evsamsonov/FinamTradeGo/v2 
 ```
-    
+
+
+
+[portfolios.proto](..%2Ftrade-api-docs%2Fcontracts%2Fproto%2Ftradeapi%2Fv1%2Fportfolios.proto)
+
 ## Examples
 
 ### Пример получения свечей
@@ -188,7 +192,7 @@ func main() {
 
 ## Authors
 
-- [@DBoyara](https://www.github.com/DBoyara)
+- [@DBoyara](https://www.github.com/DBoyara)s
 
 
 ## License
